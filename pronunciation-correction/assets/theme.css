@@ -1,0 +1,229 @@
+/* ── 发音纠错报告 · Minecraft 木牌风格 ───────────────────────── */
+:root{
+  --sky1:#a9dcff; --sky2:#e3f5ff;
+  --wood1:#9a6633; --wood2:#7a4d26; --wood3:#4a2d15;
+  --gold:#e0a83e; --goldlt:#f6d27a;
+  --panel:#fffdf6; --panel2:#f8eed7;
+  --ink:#3b2a17; --mut:#7d6a52;
+  --red:#c0392b; --redbg:#ffe2da;
+  --grn:#2f8f4e; --grnbg:#ddf6e3;
+  --blu:#2f6fb5; --blubg:#e6f2ff;
+}
+*{box-sizing:border-box}
+html,body{min-height:100%}
+body{
+  margin:0;color:var(--ink);
+  font:16px/1.8 -apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  background:linear-gradient(180deg,var(--sky1) 0%,var(--sky2) 55%,#eaf7e3 100%);
+  background-attachment:fixed;
+}
+/* 像素场景 */
+.scene{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.scene svg{width:100%;height:100%;display:block}
+
+.wrap{max-width:960px;margin:0 auto;padding:34px 22px 110px;position:relative;z-index:1}
+
+/* ── 标题 ── */
+.hero{margin-bottom:18px;text-align:center}
+h1{
+  font-size:30px;line-height:1.28;margin:0 0 12px;letter-spacing:.5px;
+  font-family:ui-monospace,"Cascadia Mono",Consolas,"Courier New",monospace;
+  font-weight:800;color:#fff8e0;
+  text-shadow:
+    -2px 0 0 var(--wood3), 2px 0 0 var(--wood3), 0 -2px 0 var(--wood3), 0 2px 0 var(--wood3),
+    -2px -2px 0 var(--wood3), 2px -2px 0 var(--wood3), -2px 2px 0 var(--wood3), 2px 2px 0 var(--wood3),
+    0 7px 0 var(--wood3), 0 9px 14px rgba(60,40,15,.28);
+}
+.sub{
+  display:inline-block;margin:0;padding:3px 12px;font-size:12.5px;color:#6b5940;
+  background:rgba(255,253,246,.86);border:2px solid var(--wood2);
+  box-shadow:3px 3px 0 rgba(74,45,21,.18);
+}
+.grass{
+  height:10px;margin:16px auto 0;max-width:340px;border:2px solid var(--wood3);
+  background:repeating-linear-gradient(90deg,#a06a33 0 18px,#8b5a2b 18px 36px);
+  box-shadow:3px 3px 0 rgba(74,45,21,.2);
+}
+
+/* ── 木牌卡片 ── */
+.card{
+  position:relative;
+  background-image:
+    repeating-linear-gradient(90deg,rgba(150,110,60,.09) 0 2px,transparent 2px 108px),
+    repeating-linear-gradient(0deg,rgba(150,110,60,.05) 0 2px,transparent 2px 46px),
+    linear-gradient(180deg,var(--panel),var(--panel2));
+  border:4px solid var(--wood2);
+  box-shadow:0 0 0 4px var(--gold),0 0 0 7px var(--wood3),
+             10px 10px 0 rgba(45,28,10,.22);
+  padding:22px 24px;margin:0 0 28px;
+}
+.card.plain{padding:0}
+
+/* ── 章节标牌 ── */
+h2{
+  display:inline-flex;align-items:center;gap:9px;margin:36px 0 15px;
+  padding:7px 16px 7px 10px;
+  background:linear-gradient(180deg,var(--wood1),var(--wood2));
+  border:3px solid var(--wood3);
+  box-shadow:5px 5px 0 rgba(45,28,10,.25);
+  color:#ffe9a8;font:800 16px/1.25 ui-monospace,"Cascadia Mono",Consolas,monospace;
+  letter-spacing:.5px;text-shadow:2px 2px 0 #3a2410;
+}
+.blk{
+  width:15px;height:15px;flex:none;border:2px solid #3a2410;
+  background:linear-gradient(180deg,#8ed94f 0 5px,#6fbf3f 5px 6px,#8a5a2e 6px 15px);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.25);
+}
+
+/* ── 问题分组 ── */
+.pat{display:flex;gap:13px;padding:16px 2px;border-bottom:2px dashed #d9c6a4}
+.pat:last-child{border-bottom:none;padding-bottom:4px}
+.pnum{
+  flex:none;width:30px;height:30px;border:2px solid var(--wood3);
+  background:linear-gradient(180deg,var(--goldlt),#d99b2a);
+  color:#4a2d15;font-weight:800;font-size:14px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:2px 2px 0 rgba(74,45,21,.3);text-shadow:0 1px 0 #ffe9a8;
+}
+.pnum.q{background:linear-gradient(180deg,#cfd8c6,#a9b79c);color:#3d4a33;text-shadow:none}
+.pbody{flex:1;min-width:0}
+.pbody h3{margin:0 0 4px;font-size:15.5px;font-weight:800;color:#4a2d15}
+.tm2{font-weight:400;color:var(--mut);font-size:12.5px;margin-left:6px}
+.desc{margin:0 0 10px;color:#5c4a33;font-size:13.5px;line-height:1.78}
+
+/* ── 发音习惯改善：一行一个归总 ── */
+.chips{display:block}
+.grow{
+  display:flex;align-items:center;gap:9px;padding:7px 10px;margin-bottom:9px;
+  width:100%;min-width:0;
+  background:#fffdf7;border:2px solid #c39a63;
+  box-shadow:3px 3px 0 rgba(90,62,30,.16);
+}
+.grow:last-child{margin-bottom:0}
+.gword{font-weight:800;font-size:13.5px;white-space:nowrap;color:#4a2d15;
+  min-width:104px;flex:none}
+.bracewrap{position:relative;width:13px;flex:none;align-self:stretch}
+.brace{position:absolute;left:0;top:0;bottom:0;width:13px;height:100%;
+  color:#2f8f4e;display:block}
+.occlist{display:flex;flex-direction:column;gap:4px;min-width:0;flex:1}
+.occ{display:flex;align-items:center;gap:8px;font-size:12.5px;min-width:0}
+.occ .tm{color:var(--mut);font-variant-numeric:tabular-nums;font-size:11.5px;flex:none}
+.occ .hz{color:#5c4a33;min-width:0;flex:1}
+.occ .hz b{color:var(--red)}
+.occ .btn{margin-left:auto;flex:none}
+
+/* ── 按钮（Minecraft 方块）── */
+.btn{
+  border:2px solid var(--wood3);background:#fff8ea;color:var(--blu);
+  font:700 12px/1 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+  padding:5px 9px;cursor:pointer;white-space:nowrap;
+  box-shadow:0 3px 0 var(--wood3);transition:transform .06s,box-shadow .06s;
+}
+.btn:hover{background:var(--blubg)}
+.btn:active{transform:translateY(3px);box-shadow:none}
+.btn.mini{padding:4px 7px;font-size:11.5px}
+.btn.ref{
+  color:#1f7a3d;background:linear-gradient(180deg,#e8fbea,#d3f3da);
+  border-color:#24603a;box-shadow:0 3px 0 #24603a;
+}
+.btn.ref:hover{background:#c6f0d2}
+.btn.on{background:var(--blu);color:#fff}
+.btn.ref.on{background:#2f8f4e;color:#fff;border-color:#1d5c34}
+
+/* ── 表格 ── */
+.tb{width:100%;border-collapse:collapse;table-layout:fixed;font-size:13.5px;background:#fffdf7}
+.tb th{
+  background:linear-gradient(180deg,var(--wood1),var(--wood2));
+  color:#ffe9a8;text-align:left;padding:9px 11px;font-weight:800;font-size:12.5px;
+  border-bottom:3px solid var(--wood3);white-space:nowrap;text-shadow:1px 1px 0 #3a2410;
+}
+.tb td{padding:10px 11px;border-bottom:2px dashed #dcc9a8;vertical-align:top}
+.tb tr:last-child td{border-bottom:none}
+.tb tbody tr:nth-child(even){background:rgba(255,255,255,.5)}
+.tb .t{color:var(--mut);white-space:nowrap;font-variant-numeric:tabular-nums;
+  font-size:12.5px;width:78px}
+.tb .sw{font-weight:700;width:28%}
+.tb .sh{color:var(--red);width:23%}
+.tb .nt{color:#5c4a33;font-size:12.5px}
+.tb .pb{white-space:nowrap;width:144px}
+.tb .pb .btn{margin:0 4px 4px 0}
+
+/* ── 全文标注 ── */
+.ln{
+  display:flex;gap:11px;align-items:flex-start;padding:10px 8px;flex-wrap:wrap;
+  border-bottom:2px dashed #dcc9a8;
+}
+.ln:last-child{border-bottom:none}
+.ln:nth-child(odd){background:rgba(255,255,255,.55)}
+.lno{
+  flex:none;width:27px;height:23px;border:2px solid var(--wood3);
+  background:linear-gradient(180deg,var(--goldlt),#d99b2a);
+  color:#4a2d15;font-size:11.5px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;margin-top:3px;
+  box-shadow:1px 1px 0 rgba(74,45,21,.35);text-shadow:0 1px 0 #ffe9a8;
+}
+.ltx{flex:1;min-width:240px;font-size:15px;line-height:2.05}
+.lbtn{flex:none;display:flex;gap:5px;flex-wrap:wrap}
+.lbtn .btn{font-size:11.5px;padding:4px 8px}
+
+.pw{
+  background:var(--redbg);border-bottom:3px solid var(--red);padding:1px 3px;
+  cursor:pointer;font-weight:700;color:#9a2b1e;
+}
+.pw:hover{background:#ffd2c6}
+.refmini{
+  display:inline-block;width:17px;height:17px;margin:0 4px 0 2px;cursor:pointer;
+  background:linear-gradient(180deg,#8ed94f,#5aa02c);border:2px solid #24603a;
+  vertical-align:-2px;box-shadow:1px 1px 0 rgba(36,96,58,.45);position:relative;
+}
+.refmini::after{
+  content:"";position:absolute;left:3px;top:3px;width:8px;height:4px;
+  border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg);
+}
+.refmini:hover{background:linear-gradient(180deg,#9fe563,#6bbf3f)}
+
+.legend{
+  display:flex;gap:20px;flex-wrap:wrap;font-size:12.5px;color:#6b5940;
+  margin-top:14px;align-items:center;
+  background:rgba(255,253,246,.8);border:2px solid #c39a63;padding:7px 12px;
+}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend .sw-red{width:14px;height:14px;background:var(--redbg);border:2px solid var(--red)}
+.legend .sw-grn{width:14px;height:14px;background:#8ed94f;border:2px solid #24603a}
+
+/* ── 自动朗读 ── */
+.card.plain{padding:0}
+.autobar{margin-left:12px;display:inline-flex;gap:6px;align-items:center}
+.autobar .btn{
+  font-size:11.5px;padding:4px 9px;font-weight:700;text-shadow:none;
+  background:#fff8ea;color:#4a2d15;border-color:#3a2410;box-shadow:0 2px 0 #3a2410;
+}
+.autobar .btn:hover{background:#fff}
+.autobar .btn.cancel{color:#8a2b1e;background:#ffe6df;border-color:#7a2b20;box-shadow:0 2px 0 #7a2b20}
+.autobar .btn.active{background:#ffe9a8;transform:translateY(2px);box-shadow:none}
+
+.playitem.auto-on{background:#fffbe8;box-shadow:inset 0 0 0 3px #f2c14e}
+tr.playitem.auto-on{background:#fffbe8}
+.btn.lit{background:#f2c14e;color:#4a2d15;border-color:#8a5a2b}
+
+.occlist{flex:1}
+
+/* ── 朗读模式单选 ── */
+h2{flex-wrap:wrap}
+.autobar{flex-wrap:wrap}
+.opt{
+  display:inline-flex;align-items:center;gap:5px;cursor:pointer;white-space:nowrap;
+  color:#ffe9a8;font:700 11.5px/1 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+  text-shadow:1px 1px 0 #3a2410;
+}
+.opt input{
+  appearance:none;-webkit-appearance:none;width:14px;height:14px;margin:0;flex:none;
+  border:2px solid #3a2410;border-radius:50%;background:#fff8ea;
+  position:relative;cursor:pointer;
+}
+.opt input::after{
+  content:"";position:absolute;inset:2px;border-radius:50%;
+  background:#f2c14e;opacity:0;transition:opacity .1s;
+}
+.opt input:checked::after{opacity:1}
+.opt input:checked{box-shadow:0 0 0 2px rgba(255,233,168,.75)}

@@ -10,3 +10,10 @@ pages_extracted/
 
 .DS_Store
 Thumbs.db
+
+# pronunciation-correction 运行时产物（练习档案不进仓库）
+history.md
+work*/
+_verify/
+clips/
+tts/
