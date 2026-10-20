@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+pages_extracted/
+*.mp4
+*.wav
+*.docx
+
+.DS_Store
+Thumbs.db
